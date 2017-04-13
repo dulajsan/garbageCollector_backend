@@ -17,7 +17,7 @@ exports.getWastes = function(req, res, next){
 exports.createWaste = function(req, res, next){
 
     Waste.create({
-        category : req.body.title,
+        category : req.body.category,
         quantity: req.body.quantity
     }, function(err, waste) {
 
