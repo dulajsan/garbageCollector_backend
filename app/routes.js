@@ -28,7 +28,7 @@ module.exports = function(app){
 
     wasteRoutes.get('/', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.getWastes);
     wasteRoutes.post('/', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.createWaste);
-    wateRoutes.delete('/:waste_id', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.deleteWaste);
+    wasteRoutes.delete('/:waste_id', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.deleteWaste);
 
     // Set up routes
     app.use('/api', apiRoutes);

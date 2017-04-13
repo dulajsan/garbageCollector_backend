@@ -21,7 +21,7 @@ var UserSchema = new mongoose.Schema({
         required: true
     },
 
-    nic{
+    nic:{
       type:String,
       unique:true,
 
@@ -31,12 +31,12 @@ var UserSchema = new mongoose.Schema({
         enum: ['generator','collector'],
         required:true
     },
-    mobile{
+    mobile:{
       type:Number,
       required:true
 
     },
-    area{
+    area:{
       type:String,
       required:true
 

@@ -7,7 +7,7 @@ var WasteSchema = new mongoose.Schema({
         required: true
     },
 
-    quantity{
+    quantity:{
       type:Number,
       required:true
     }

@@ -56,7 +56,7 @@ exports.register = function(req, res, next){
         }
 
         var user = new User({
-            name=name,
+            name:name,
             email: email,
             password: password,
             nic:nic,
