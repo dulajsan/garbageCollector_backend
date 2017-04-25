@@ -12,8 +12,8 @@ module.exports = function(app){
 
     var apiRoutes = express.Router(),
         authRoutes = express.Router(),
-        wasteRoutes = express.Router();
-        locationRoutes =express.Router();
+        wasteRoutes = express.Router(),
+       locationRoutes =express.Router();
 
     // Auth Routes
     apiRoutes.use('/auth', authRoutes);
@@ -34,8 +34,8 @@ module.exports = function(app){
     
     
     //location Routes
-    
-    locationRoutes.post('/location', locationController.updateLocation);
+    apiRoutes.use('/location',locationRoutes);
+    locationRoutes.post('/add', locationController.updateLocation);
     
     
 
