@@ -31,13 +31,16 @@ module.exports = function(app){
     wasteRoutes.get('/', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.getWastes);
     wasteRoutes.post('/', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.createWaste);
     wasteRoutes.delete('/:waste_id', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.deleteWaste);
-    
-    
+
+
+    //waste categories
+    wasteRoutes.post('/cat',requireAuth,AuthenticationController.roleAuthorization(['generator']),WasteController.getcat);
+
     //location Routes
     apiRoutes.use('/location',locationRoutes);
     locationRoutes.post('/add', locationController.updateLocation);
-    
-    
+
+
 
     // Set up routes
     app.use('/api', apiRoutes);

@@ -39,6 +39,20 @@ exports.createWaste = function(req, res, next){
 
 }
 
+exports.getcat=function(req,res,next){
+  let user=req.body.email;
+  let category=req.body.cat;
+  Waste.find(function(err, wastes) {
+
+      if (err){
+          res.send(err);
+      }
+
+      res.json(wastes);
+
+  });
+}
+
 exports.deleteWaste = function(req, res, next){
 
     Waste.remove({
