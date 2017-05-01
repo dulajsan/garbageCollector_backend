@@ -18,7 +18,8 @@ exports.createWaste = function(req, res, next){
 
     Waste.create({
         category : req.body.category,
-        quantity: req.body.quantity
+        quantity: req.body.quantity,
+        user:req.body.user
     }, function(err, waste) {
 
         if (err){
@@ -41,8 +42,8 @@ exports.createWaste = function(req, res, next){
 
 exports.getcat=function(req,res,next){
   let user=req.body.email;
-  let category=req.body.cat;
-  Waste.find(function(err, wastes) {
+ let categor=req.body.cat;
+  Waste.find({category:categor},function(err, wastes) {
 
       if (err){
           res.send(err);

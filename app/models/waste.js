@@ -10,6 +10,10 @@ var WasteSchema = new mongoose.Schema({
     quantity:{
       type:Number,
       required:true
+    },
+    user:{
+      type:String,
+      required:true
     }
 
 }, {

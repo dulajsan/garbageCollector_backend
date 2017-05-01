@@ -1,6 +1,7 @@
 var AuthenticationController = require('./controllers/authentication'),
     WasteController = require('./controllers/wastes'),
     locationController=require('./controllers/location');
+    userController=require('./controllers/user');
     express = require('express'),
     passportService = require('../config/passport'),
     passport = require('passport');
@@ -14,6 +15,7 @@ module.exports = function(app){
         authRoutes = express.Router(),
         wasteRoutes = express.Router(),
        locationRoutes =express.Router();
+       userRoutes= express.Router();
 
     // Auth Routes
     apiRoutes.use('/auth', authRoutes);
@@ -31,6 +33,12 @@ module.exports = function(app){
     wasteRoutes.get('/', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.getWastes);
     wasteRoutes.post('/', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.createWaste);
     wasteRoutes.delete('/:waste_id', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.deleteWaste);
+
+
+    //user Routes
+    apiRoutes.use('/users',userRoutes);
+
+    userRoutes.post('/loc',requireAuth,AuthenticationController.roleAuthorization(['generator']),userController.getLocation);
 
 
     //waste categories
