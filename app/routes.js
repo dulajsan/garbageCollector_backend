@@ -33,7 +33,7 @@ module.exports = function(app){
     wasteRoutes.get('/', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.getWastes);
     wasteRoutes.post('/', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.createWaste);
     wasteRoutes.delete('/:waste_id', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.deleteWaste);
-
+    wasteRoutes.post('/mypost', requireAuth, AuthenticationController.roleAuthorization(['generator']), WasteController.mypost);
 
     //user Routes
     apiRoutes.use('/users',userRoutes);

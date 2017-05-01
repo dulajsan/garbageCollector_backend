@@ -54,6 +54,20 @@ exports.getcat=function(req,res,next){
   });
 }
 
+
+exports.mypost=function(req,res,next){
+  let usert=req.body.email;
+  Waste.find({user:usert},function(err, posts) {
+
+      if (err){
+          res.send(err);
+      }
+
+      res.json(posts);
+
+  });
+}
+
 exports.deleteWaste = function(req, res, next){
 
     Waste.remove({
